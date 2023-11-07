@@ -9,6 +9,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./styles/global.css" />
     <title>ProfitPro | Home</title>
   </head>
   <body>
@@ -57,70 +58,136 @@
       </div>
     </nav>
     <div>
+      <!--  trocar type="text" para "number" -->
       <h1>Índices financeiros</h1>
-      <form action="" id="media-bruta">
-        <label for="qtd-produtos">Quantidade de produtos</label>
+      <form action="" id="indicesFinanceiros">
+        <label for="patrimonioLiquido">Patrimônio líquido</label>
         <input
-          type="text"
-          id="qtd-produtos"
+          type="number"
+          id="patrimonioLiquido"
           required
-          pattern="^[\d,.?!]+$"
+          step="0.01"
+          min="0"
           placeholder="Digite apenas números"
         />
-        <label for="produtos-vendidos">Produtos vendidos</label>
+        <label for="lucroLiquido">Lucro líquido</label>
         <input
-          type="text"
-          id="produtos-vendidos"
+          type="number"
+          id="lucroLiquido"
           required
-          pattern="^[\d,.?!]+$"
+          step="0.01"
+          min="0"
           placeholder="Digite apenas números"
         />
-        <label for="preco-venda">Preço de venda</label>
+        <label for="lucroBruto">Lucro bruto </label>
+
         <input
-          type="text"
-          id="preco-venda"
+          type="number"
+          id="lucroBruto"
           required
-          pattern="^[\d,.?!]+$"
+          step="0.01"
+          min="0"
           placeholder="Digite apenas números"
         />
-        <label for="custo-unidade">Custo por unidade</label>
+        <label for="ebitda">EBITDA</label>
         <input
-          type="text"
-          id="custo-unidade"
+          type="number"
+          id="ebitda"
           required
-          pattern="^[\d,.?!]+$"
+          step="0.01"
+          min="0"
           placeholder="Digite apenas números"
         />
-        <label for="despesas-operacionais">Despesas operacionais</label>
+        <label for="receitaTotal">Receita total</label>
         <input
-          type="text"
-          id="despesas-operacionais"
+          type="number"
+          id="receitaTotal"
           required
-          pattern="^[\d,.?!]+$"
+          step="0.01"
+          min="0"
           placeholder="Digite apenas números"
         />
-        <label for="receitas-operacionais">Receitas operacionais</label>
+        <label for="ganho">Ganho</label>
         <input
-          type="text"
-          id="receitas-operacionais"
+          type="number"
+          id="ganho"
           required
-          pattern="^[\d,.?!]+$"
+          step="0.01"
+          min="0"
           placeholder="Digite apenas números"
         />
-        <label for="depreciacao">Depreciação</label>
+        <label for="investimentoAportado">Investimento Aportado</label>
         <input
-          type="text"
-          id="depreciacao"
+          type="number"
+          id="investimentoAportado"
           required
-          pattern="^[\d,.?!]+$"
+          step="0.01"
+          min="0"
           placeholder="Digite apenas números"
         />
-        <label for="amortizacao">Amortização</label>
+        <label for="dividaLiquida">Dívida liquida</label>
         <input
-          type="text"
-          id="amortizacao"
+          type="number"
+          id="dividaLiquida"
           required
-          pattern="^[\d,.?!]+$"
+          step="0.01"
+          min="0"
+          placeholder="Digite apenas números"
+        />
+        <label for="ativoCirculante">Ativo Circulante</label>
+        <input
+          type="number"
+          id="ativoCirculante"
+          required
+          step="0.01"
+          min="0"
+          placeholder="Digite apenas números"
+        />
+
+        <label for="realizavelLongoPrazo">Realizável a longo prazo</label>
+        <input
+          type="number"
+          id="realizavelLongoPrazo"
+          required
+          step="0.01"
+          min="0"
+          placeholder="Digite apenas números"
+        />
+
+        <label for="estoque">Estoque</label>
+        <input
+          type="number"
+          id="estoque"
+          required
+          step="0.01"
+          min="0"
+          placeholder="Digite apenas números"
+        />
+        <label for="passivoCirculante">Passivo Circulante</label>
+        <input
+          type="number"
+          id="passivoCirculante"
+          required
+          step="0.01"
+          min="0"
+          placeholder="Digite apenas números"
+        />
+        <label for="naoCirculante">Não Circulante</label>
+        <input
+          type="number"
+          id="naoCirculante"
+          required
+          step="0.01"
+          min="0"
+          placeholder="Digite apenas números"
+        />
+        <label for="disponibilidades">Disponibilidades</label>
+        <input
+          type="number"
+          id="disponibilidades"
+          required
+          step="0.01"
+          min="0"
           placeholder="Digite apenas números"
         />
         <button type="submit">Enviar</button>
@@ -133,6 +200,6 @@
       crossorigin="anonymous"
     ></script>
     <!-- Para utilizar a importação é necessário colocar o atributo type="module" na tag <script></script> -->
-    <script type="module" src="./scripts/indicesFinanceiros.js"></script>
+    <script type="module" src="./js/indicesFinanceiros.js"></script>
   </body>
 </html>
