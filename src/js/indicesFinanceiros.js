@@ -191,13 +191,18 @@ import {
 
     //Inserindo resultados dentro do modal.
     const corpoDoModal = document.querySelector(".modal-body");
-    const spanResultado = document.createElement("span");
 
     if (toNumberLucroLiquido) {
-      corpoDoModal.append((spanResultado.innerHTML = margemLiquida));
+      corpoDoModal.innerHTML = `<span>${margemLiquida}</span>`;
     } else {
-      return console.log("Nenhuma operação.");
+      corpoDoModal.innerHTML = "";
     }
+
+    //Resetar resultado do modal
+    const fecharModalX = document.querySelector(".btn-close");
+    fecharModalX.addEventListener("click", function () {
+      corpoDoModal.innerHTML = "";
+    });
   };
 
   //Pegando todos os formulários através do seletor de classe.
