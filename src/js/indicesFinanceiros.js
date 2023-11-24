@@ -7,6 +7,7 @@ import {
   patrimonioLiquido,
   lucroLiquido,
   lucroBruto,
+  ebitda,
   receitaTotal,
   ganho,
   investimentoAportado,
@@ -36,52 +37,56 @@ import {
     const margemLiquida = (lucroLiquido / receitaTotal) * 100;
     //toFixed(2) para corrigir a notação de numeros reais para 2 dígitos após .00
     //Está sendo utilizado a template lyterals representado por `` para facilidar a concateção e uso de lógica JavaScript com a estrutura ${}
-    console.log(`Resultado da média bruta: ${margemLiquida.toFixed(2)}%`);
+    return `Resultado da média bruta: ${margemLiquida.toFixed(2)}%`;
   };
   const calcularMargemBruta = (lucroBruto, receitaTotal) => {
     const margemBruta = (lucroBruto / receitaTotal) * 100;
     //toFixed(2) para corrigir a notação de numeros reais para 2 dígitos após .00
     //Está sendo utilizado a template lyterals representado por `` para facilidar a concateção e uso de lógica JavaScript com a estrutura ${}
-    console.log(`Resultado da média bruta: ${margemBruta.toFixed(2)}%`);
+    return `Resultado da média bruta: ${margemBruta.toFixed(2)}%`;
   };
 
   const calcularMargemEBITDA = (EBITDA, receitaTotal) => {
     const mediaEBITDA = (EBITDA / receitaTotal) * 100;
-    console.log(`Resultado da média EBITDA: ${mediaEBITDA.toFixed(2)}%`);
+    return `Resultado da média EBITDA: ${mediaEBITDA.toFixed(2)}%`;
   };
 
   const calcularROI = (ganho, investimentoAportado) => {
     const totalRoi =
       ((ganho - investimentoAportado) / investimentoAportado) * 100;
-    console.log(`Resultado do ROI: ${totalRoi.toFixed(2)}%`);
+    return `Resultado do ROI: ${totalRoi.toFixed(2)}%`;
   };
 
   const calcularROE = (lucroLiquido, ptrimonioLiquido) => {
     const totalRoe = (lucroLiquido / ptrimonioLiquido) * 100;
-    console.log(`Resultado ROE: ${totalRoe.toFixed(2)}%`);
+    return `Resultado ROE: ${totalRoe.toFixed(2)}%`;
   };
 
   //Indicadores financeiros de endividamento
   const calculoAlavancagem = (dividaLiquida, EBITDA) => {
     const resultadoAlavancagem = (dividaLiquida / EBITDA) * 100;
-    console.log(`Resultado endividamento: ${resultadoAlavancagem}%`);
+    return `Resultado endividamento: ${resultadoAlavancagem.toFixed(2)}%`;
   };
+
   //Indicadores financeiros de Liquidez
   const liquidezCorrente = (ativoCirculante, passivoCirculante) => {
     const resultadoLiquidezCorrente = ativoCirculante / passivoCirculante;
     //Se o resultado for superior a 1, em geral, significa que a empresa dispõe de recursos para fazer frente aos compromissos de curto prazo.
-    console.log(`Está com dívidas: ${resultadoLiquidezCorrente}`);
+    return `Está com dívidas: ${resultadoLiquidezCorrente.toFixed(2)}`;
   };
 
   const liquidezSeca = (ativoCirculante, estoque, passivoCirculante) => {
     const resultadoLiquidezSeca =
       (ativoCirculante - estoque) / passivoCirculante;
-    console.log(`Resultado liquidez seca: ${resultadoLiquidezSeca}`);
+    return `Resultado liquidez seca: ${resultadoLiquidezSeca.toFixed(2)}`;
   };
 
   const liquidezImediata = (disponibilidades, passivoCirculante) => {
     const resultadoLiquidezImediata = disponibilidades / passivoCirculante;
-    console.log(`Resultado liquidez imediata: ${resultadoLiquidezImediata}`);
+
+    return `Resultado liquidez imediata: ${resultadoLiquidezImediata.toFixed(
+      2
+    )}`;
   };
 
   const liquidezGeral = (
@@ -93,10 +98,13 @@ import {
     const resultadoLiquidezGeral =
       (ativoCirculante + realizavelLongoPrazo) /
       (passivoCirculante + naoCirculante);
-    console.log(`Resultado liquidez geral: ${resultadoLiquidezGeral}`);
+
+    return `Resultado liquidez geral: ${resultadoLiquidezGeral.toFixed(2)}`;
   };
 
   const calcularIndices = (event) => {
+    event.preventDefault();
+
     //Convertendo os valodes de string para números.
     const toNumberLucroLiquido = Number.parseFloat(
       //Trocando vígula por ponto para poder utilizar o padrão brasileiro de números reais por baixo dos panos.
@@ -138,32 +146,88 @@ import {
     const toNumberNaoCirculante = Number.parseFloat(
       naoCirculante.value.replace(",", ".")
     );
-    const toNumberDisponibilidades = Numbe.parseFloat(
+    const toNumberDisponibilidades = Number.parseFloat(
       disponibilidades.value.replace(",", ".")
     );
+
     //Execução das funções e armazenamento dos valores em variáveis.
-    calcularMargemLiquida(toNumberLucroLiquido, toNumberReceitaTotal);
-    calcularMargemBruta(toNumberLucroBruto, toNumberReceitaTotal);
-    calcularMargemEBITDA(toNumberEbitda, toNumberReceitaTotal);
-    calcularROI(toNumberGanho, toNumberInvestimentoAportado);
-    calcularROE(toNumberLucroLiquido, toNumberPatrimonioLiquido);
-    calculoAlavancagem(toNumberDividaLiquida, toNumberEbitda);
-    liquidezCorrente(toNumberAtivoCirculante, toNumberPassivoCirculante);
-    liquidezSeca(
+    const margemLiquida = calcularMargemLiquida(
+      toNumberLucroLiquido,
+      toNumberReceitaTotal
+    );
+    const margemBruta = calcularMargemBruta(
+      toNumberLucroBruto,
+      toNumberReceitaTotal
+    );
+    const margemEBITDA = calcularMargemEBITDA(
+      toNumberEbitda,
+      toNumberReceitaTotal
+    );
+    const roi = calcularROI(toNumberGanho, toNumberInvestimentoAportado);
+    const roe = calcularROE(toNumberLucroLiquido, toNumberPatrimonioLiquido);
+    const alavancagem = calculoAlavancagem(
+      toNumberDividaLiquida,
+      toNumberEbitda
+    );
+    const liquidezCrt = liquidezCorrente(
+      toNumberAtivoCirculante,
+      toNumberPassivoCirculante
+    );
+    const liquidezSec = liquidezSeca(
       toNumberAtivoCirculante,
       toNumberEstoque,
       toNumberPassivoCirculante
     );
-    liquidezImediata(toNumberDisponibilidades, toNumberPassivoCirculante);
-    liquidezGeral(
+    const liquidezImd = liquidezImediata(
+      toNumberDisponibilidades,
+      toNumberPassivoCirculante
+    );
+    const liquidezGer = liquidezGeral(
       toNumberAtivoCirculante,
       toNumberRealizavelLongoPrazo,
       toNumberPassivoCirculante,
       toNumberNaoCirculante
     );
 
-    event.preventDefault();
+    //Inserindo resultados dentro do modal.
+    const corpoDoModal = document.querySelector(".modal-body");
+    const spanResultado = document.createElement("span");
+
+    if (toNumberLucroLiquido) {
+      corpoDoModal.append((spanResultado.innerHTML = margemLiquida));
+    } else {
+      return console.log("Nenhuma operação.");
+    }
   };
+
+  //Pegando todos os formulários através do seletor de classe.
+  const forms = document.querySelectorAll(".needs-validation");
+
+  // Função da documentação bootstraps para validar o formulário.
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    const myModal = document.getElementById("resultados");
+
+    //Função para impedir o modal de abrir enquanto os dados do formulário não estiverem preenchidos.
+    myModal.addEventListener("show.bs.modal", function (event) {
+      if (!form.checkValidity()) {
+        return event.preventDefault();
+      }
+    });
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+          // <div class="valid-feedback">Campo preenchido corretamente.</div>
+          // <div class="invalid-feedback">Campo vazio preencha corretamente.</div>
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
 
   formulario.addEventListener("submit", calcularIndices);
 })();

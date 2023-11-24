@@ -1,4 +1,4 @@
-const formulario = document.querySelector("#indicesFinanceiros");
+const formulario = document.querySelector("#indicadores");
 const patrimonioLiquido = document.querySelector("#patrimonioLiquido");
 const lucroLiquido = document.querySelector("#lucroLiquido");
 const lucroBruto = document.querySelector("#lucroBruto");

@@ -13,186 +13,266 @@
     <title>ProfitPro | Home</title>
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-lg bg-dark border-bottom border-body"
-      data-bs-theme="dark"
-    >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarColor01"
-          aria-controls="navbarColor01"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-light" type="submit">Search</button>
-          </form>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg bg-dark border-bottom border-body"
+        data-bs-theme="dark"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- Button trigger modal -->
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="resultados"
+        tabindex="-1"
+        aria-labelledby="resultadosIndices"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="resultadosIndices">
+                Resultados dos indices
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-    <div>
-      <!--  trocar type="text" para "number" -->
-      <h1>Índices financeiros</h1>
-      <form action="" id="indicesFinanceiros">
-        <label for="patrimonioLiquido">Patrimônio líquido</label>
-        <input
-          type="number"
-          id="patrimonioLiquido"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="lucroLiquido">Lucro líquido</label>
-        <input
-          type="number"
-          id="lucroLiquido"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="lucroBruto">Lucro bruto </label>
 
-        <input
-          type="number"
-          id="lucroBruto"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="ebitda">EBITDA</label>
-        <input
-          type="number"
-          id="ebitda"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="receitaTotal">Receita total</label>
-        <input
-          type="number"
-          id="receitaTotal"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="ganho">Ganho</label>
-        <input
-          type="number"
-          id="ganho"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="investimentoAportado">Investimento Aportado</label>
-        <input
-          type="number"
-          id="investimentoAportado"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="dividaLiquida">Dívida liquida</label>
-        <input
-          type="number"
-          id="dividaLiquida"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="ativoCirculante">Ativo Circulante</label>
-        <input
-          type="number"
-          id="ativoCirculante"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
+      <!-- Formulário de indicadores contábeis -->
+      <div>
+        <!--  trocar type="text" para "number" -->
+        <h1>Índices financeiros</h1>
+        <form class="needs-validation" id="indicadores" novalidate>
+          <label for="patrimonioLiquido" class="form-label"
+            >Patrimônio líquido</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="patrimonioLiquido"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
 
-        <label for="realizavelLongoPrazo">Realizável a longo prazo</label>
-        <input
-          type="number"
-          id="realizavelLongoPrazo"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
+          <label for="lucroLiquido" class="form-label">Lucro líquido</label>
+          <input
+            type="number"
+            class="form-control"
+            id="lucroLiquido"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
 
-        <label for="estoque">Estoque</label>
-        <input
-          type="number"
-          id="estoque"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="passivoCirculante">Passivo Circulante</label>
-        <input
-          type="number"
-          id="passivoCirculante"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="naoCirculante">Não Circulante</label>
-        <input
-          type="number"
-          id="naoCirculante"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <label for="disponibilidades">Disponibilidades</label>
-        <input
-          type="number"
-          id="disponibilidades"
-          required
-          step="0.01"
-          min="0"
-          placeholder="Digite apenas números"
-        />
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
+          <label for="lucroBruto" class="form-label">Lucro bruto</label>
+          <input
+            type="number"
+            class="form-control"
+            id="lucroBruto"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="ebitda" class="form-label">EBITDA</label>
+          <input
+            type="number"
+            class="form-control"
+            id="ebitda"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="receitaTotal" class="form-label">Receita total</label>
+          <input
+            type="number"
+            class="form-control"
+            id="receitaTotal"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="ganho" class="form-label">Ganho</label>
+          <input
+            type="number"
+            class="form-control"
+            id="ganho"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="investimentoAportado" class="form-label"
+            >Investimento Aportado</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="investimentoAportado"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="dividaLiquida" class="form-label">Dívida liquida</label>
+          <input
+            type="number"
+            class="form-control"
+            id="dividaLiquida"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="ativoCirculante" class="form-label"
+            >Ativo Circulante</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="ativoCirculante"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="realizavelLongoPrazo" class="form-label"
+            >Realizável a longo prazo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="realizavelLongoPrazo"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="estoque" class="form-label">Estoque</label>
+          <input
+            type="number"
+            class="form-control"
+            id="estoque"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="passivoCirculante" class="form-label"
+            >Passivo Circulante</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="passivoCirculante"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="naoCirculante" class="form-label">Não Circulante</label>
+          <input
+            type="number"
+            class="form-control"
+            id="naoCirculante"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <label for="disponibilidades" class="form-label"
+            >Disponibilidades</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="disponibilidades"
+            required
+            step="0.01"
+            min="0"
+            placeholder="Digite apenas números"
+          />
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#resultados"
+            id="btnEnviar"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </main>
+    <footer></footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
