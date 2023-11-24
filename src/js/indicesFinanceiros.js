@@ -150,6 +150,23 @@ import {
       disponibilidades.value.replace(",", ".")
     );
 
+    const arrValores = [
+      toNumberLucroLiquido,
+      toNumberLucroBruto,
+      toNumberEbitda,
+      toNumberReceitaTotal,
+      toNumberGanho,
+      toNumberInvestimentoAportado,
+      toNumberPatrimonioLiquido,
+      toNumberDividaLiquida,
+      toNumberAtivoCirculante,
+      toNumberRealizavelLongoPrazo,
+      toNumberEstoque,
+      toNumberPassivoCirculante,
+      toNumberNaoCirculante,
+      toNumberDisponibilidades,
+    ];
+
     //Execução das funções e armazenamento dos valores em variáveis.
     const margemLiquida = calcularMargemLiquida(
       toNumberLucroLiquido,
@@ -189,14 +206,27 @@ import {
       toNumberNaoCirculante
     );
 
+    const arrResultados = [
+      margemBruta,
+      margemEBITDA,
+      roi,
+      roe,
+      alavancagem,
+      liquidezCrt,
+      liquidezSec,
+      liquidezImd,
+      liquidezGer,
+    ];
+
     //Inserindo resultados dentro do modal.
     const corpoDoModal = document.querySelector(".modal-body");
-
-    if (toNumberLucroLiquido) {
-      corpoDoModal.innerHTML = `<span>${margemLiquida}</span>`;
-    } else {
-      corpoDoModal.innerHTML = "";
-    }
+    arrValores.map((valores) => {
+      if (valores) {
+        corpoDoModal.innerHTML = `<span>${margemLiquida}</span>`;
+      } else {
+        corpoDoModal.innerHTML = "";
+      }
+    });
 
     //Resetar resultado do modal
     const fecharModalX = document.querySelector(".btn-close");
