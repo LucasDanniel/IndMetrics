@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <title>FinCalc | Calculadora</title>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg bg-dark border-bottom border-body"
+        data-bs-theme="dark"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./calculadora.html">Calculadora</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sobre</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- Button trigger modal -->
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="resultados"
+        tabindex="-1"
+        aria-labelledby="resultadosIndices"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="resultadosIndices">
+                Resultados dos indices
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulário de indicadores contábeis -->
+      <div class="d-flex flex-column">
+        <!--  trocar type="text" para "number" -->
+        <h1>Calculadora de Indicadores financeiros</h1>
+        <form class="needs-validation" id="indicadores" novalidate>
+          <div class="row g-3">
+            <div class="col">
+              <div class="validar-campos">
+                <label for="patrimonioLiquido" class="form-label"
+                  >Patrimônio líquido</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="patrimonioLiquido"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+              <div class="validar-campos">
+                <label for="lucroLiquido" class="form-label"
+                  >Lucro líquido</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="lucroLiquido"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+              <div class="validar-campos">
+                <label for="lucroBruto" class="form-label">Lucro bruto</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="lucroBruto"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+              <div class="validar-campos">
+                <label for="ebitda" class="form-label">EBITDA</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="ebitda"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+              <div class="validar-campos">
+                <label for="receitaTotal" class="form-label"
+                  >Receita total</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="receitaTotal"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+              <div class="validar-campos">
+                <label for="ganho" class="form-label">Ganho</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="ganho"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+              <div class="validar-campos">
+                <label for="investimentoAportado" class="form-label"
+                  >Investimento Aportado</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="investimentoAportado"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="validar-campos">
+                <label for="dividaLiquida" class="form-label"
+                  >Dívida liquida</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="dividaLiquida"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+
+              <div class="validar-campos">
+                <label for="ativoCirculante" class="form-label"
+                  >Ativo Circulante</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="ativoCirculante"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+
+              <div class="validar-campos">
+                <label for="realizavelLongoPrazo" class="form-label"
+                  >Realizável a longo prazo</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="realizavelLongoPrazo"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+
+              <div class="validar-campos">
+                <label for="estoque" class="form-label">Estoque</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="estoque"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+
+              <div class="validar-campos">
+                <label for="passivoCirculante" class="form-label"
+                  >Passivo Circulante</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="passivoCirculante"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+
+              <div class="validar-campos">
+                <label for="naoCirculante" class="form-label"
+                  >Não Circulante</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="naoCirculante"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+
+              <div class="validar-campos">
+                <label for="disponibilidades" class="form-label"
+                  >Disponibilidades</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="disponibilidades"
+                  required
+                  step="0.01"
+                  min="0"
+                  placeholder="Digite apenas números"
+                />
+                <div class="invalid-feedback">
+                  Campo vazio preencha corretamente.
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <button
+            type="submit"
+            class="btn btn-warning"
+            data-bs-toggle="modal"
+            data-bs-target="#resultados"
+            id="btnEnviar"
+          >
+            Enviar
+          </button>
+          <br />
+        </form>
+      </div>
+    </main>
+    <footer></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Para utilizar a importação é necessário colocar o atributo type="module" na tag <script></script> -->
+    <script type="module" src="./js/indicesFinanceiros.js"></script>
+  </body>
+</html>

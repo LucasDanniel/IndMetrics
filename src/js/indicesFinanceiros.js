@@ -37,54 +37,56 @@ import {
     const margemLiquida = (lucroLiquido / receitaTotal) * 100;
     //toFixed(2) para corrigir a notação de numeros reais para 2 dígitos após .00
     //Está sendo utilizado a template lyterals representado por `` para facilidar a concateção e uso de lógica JavaScript com a estrutura ${}
-    return `Resultado da média bruta: ${margemLiquida.toFixed(2)}%`;
+    return `Indicador de média liquida: ${margemLiquida.toFixed(2)}%`;
   };
   const calcularMargemBruta = (lucroBruto, receitaTotal) => {
     const margemBruta = (lucroBruto / receitaTotal) * 100;
     //toFixed(2) para corrigir a notação de numeros reais para 2 dígitos após .00
     //Está sendo utilizado a template lyterals representado por `` para facilidar a concateção e uso de lógica JavaScript com a estrutura ${}
-    return `Resultado da média bruta: ${margemBruta.toFixed(2)}%`;
+    return `Indicador de média bruta: ${margemBruta.toFixed(2)}%`;
   };
 
   const calcularMargemEBITDA = (EBITDA, receitaTotal) => {
     const mediaEBITDA = (EBITDA / receitaTotal) * 100;
-    return `Resultado da média EBITDA: ${mediaEBITDA.toFixed(2)}%`;
+    return `Indicador de média EBITDA: ${mediaEBITDA.toFixed(2)}%`;
   };
 
   const calcularROI = (ganho, investimentoAportado) => {
     const totalRoi =
       ((ganho - investimentoAportado) / investimentoAportado) * 100;
-    return `Resultado do ROI: ${totalRoi.toFixed(2)}%`;
+    return `Indicador do ROI: ${totalRoi.toFixed(2)}%`;
   };
 
   const calcularROE = (lucroLiquido, ptrimonioLiquido) => {
     const totalRoe = (lucroLiquido / ptrimonioLiquido) * 100;
-    return `Resultado ROE: ${totalRoe.toFixed(2)}%`;
+    return `Indicador do ROE: ${totalRoe.toFixed(2)}%`;
   };
 
   //Indicadores financeiros de endividamento
   const calculoAlavancagem = (dividaLiquida, EBITDA) => {
     const resultadoAlavancagem = (dividaLiquida / EBITDA) * 100;
-    return `Resultado endividamento: ${resultadoAlavancagem.toFixed(2)}%`;
+    return `Indicador de endividamento: ${resultadoAlavancagem.toFixed(2)}%`;
   };
 
   //Indicadores financeiros de Liquidez
   const liquidezCorrente = (ativoCirculante, passivoCirculante) => {
     const resultadoLiquidezCorrente = ativoCirculante / passivoCirculante;
     //Se o resultado for superior a 1, em geral, significa que a empresa dispõe de recursos para fazer frente aos compromissos de curto prazo.
-    return `Está com dívidas: ${resultadoLiquidezCorrente.toFixed(2)}`;
+    return `Indicador de liquidez corrente: ${resultadoLiquidezCorrente.toFixed(
+      2
+    )}`;
   };
 
   const liquidezSeca = (ativoCirculante, estoque, passivoCirculante) => {
     const resultadoLiquidezSeca =
       (ativoCirculante - estoque) / passivoCirculante;
-    return `Resultado liquidez seca: ${resultadoLiquidezSeca.toFixed(2)}`;
+    return `Indicador de liquidez seca: ${resultadoLiquidezSeca.toFixed(2)}`;
   };
 
   const liquidezImediata = (disponibilidades, passivoCirculante) => {
     const resultadoLiquidezImediata = disponibilidades / passivoCirculante;
 
-    return `Resultado liquidez imediata: ${resultadoLiquidezImediata.toFixed(
+    return `Indicador de liquidez imediata: ${resultadoLiquidezImediata.toFixed(
       2
     )}`;
   };
@@ -99,7 +101,7 @@ import {
       (ativoCirculante + realizavelLongoPrazo) /
       (passivoCirculante + naoCirculante);
 
-    return `Resultado liquidez geral: ${resultadoLiquidezGeral.toFixed(2)}`;
+    return `Indicador de liquidez geral: ${resultadoLiquidezGeral.toFixed(2)}`;
   };
 
   const calcularIndices = (event) => {
@@ -206,32 +208,20 @@ import {
       toNumberNaoCirculante
     );
 
-    const arrResultados = [
-      margemBruta,
-      margemEBITDA,
-      roi,
-      roe,
-      alavancagem,
-      liquidezCrt,
-      liquidezSec,
-      liquidezImd,
-      liquidezGer,
-    ];
-
     //Inserindo resultados dentro do modal.
     const corpoDoModal = document.querySelector(".modal-body");
     arrValores.map((valores) => {
-      if (valores) {
-        corpoDoModal.innerHTML = `<span>${margemLiquida}</span>`;
-      } else {
+      //Se não existir nenhum valor deixa o corpo do modal vazio.
+      if (!valores) {
         corpoDoModal.innerHTML = "";
+      } else {
+        //Caso exista, cria uma tag span com todos os resultados.
+        corpoDoModal.innerHTML = `
+        <span>${margemLiquida}</span>
+        <br/>
+       
+        `;
       }
-    });
-
-    //Resetar resultado do modal
-    const fecharModalX = document.querySelector(".btn-close");
-    fecharModalX.addEventListener("click", function () {
-      corpoDoModal.innerHTML = "";
     });
   };
 
@@ -254,8 +244,6 @@ import {
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
-          // <div class="valid-feedback">Campo preenchido corretamente.</div>
-          // <div class="invalid-feedback">Campo vazio preencha corretamente.</div>
         }
 
         form.classList.add("was-validated");
