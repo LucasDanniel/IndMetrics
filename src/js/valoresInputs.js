@@ -1,3 +1,4 @@
+//Pegar valores dos inputs através do JavaScript utilizando o DOM.
 const formulario = document.querySelector("#indicadores");
 const patrimonioLiquido = document.querySelector("#patrimonioLiquido");
 const lucroLiquido = document.querySelector("#lucroLiquido");
@@ -14,6 +15,7 @@ const passivoCirculante = document.querySelector("#passivoCirculante");
 const naoCirculante = document.querySelector("#naoCirculante");
 const disponibilidades = document.querySelector("#disponibilidades");
 
+//Exportação dos valores para enviao ao arquivo indicesFinanceiros.js
 export {
   formulario,
   patrimonioLiquido,

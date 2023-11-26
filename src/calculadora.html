@@ -51,8 +51,6 @@
     </header>
 
     <main class="container">
-      <!-- Button trigger modal -->
-
       <!-- Modal -->
       <div
         class="modal fade"
@@ -79,6 +77,7 @@
               <button
                 type="button"
                 class="btn btn-secondary"
+                id="close-modal"
                 data-bs-dismiss="modal"
               >
                 Fechar
@@ -91,8 +90,14 @@
       <!-- Formulário de indicadores contábeis -->
       <div class="d-flex flex-column">
         <!--  trocar type="text" para "number" -->
-        <h1>Calculadora de Indicadores financeiros</h1>
-        <form class="needs-validation" id="indicadores" novalidate>
+        <h1 class="align-self-center">
+          Calculadora de Indicadores financeiros
+        </h1>
+        <form
+          class="shadow p-3 bg-body rounded needs-validation"
+          id="indicadores"
+          novalidate
+        >
           <div class="row g-3">
             <div class="col">
               <div class="validar-campos">
@@ -301,7 +306,7 @@
 
               <div class="validar-campos">
                 <label for="naoCirculante" class="form-label"
-                  >Não Circulante</label
+                  >Passivo Não Circulante</label
                 >
                 <input
                   type="number"
