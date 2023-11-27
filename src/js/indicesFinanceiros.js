@@ -181,14 +181,17 @@ import {
   const modalContainer = document.querySelector("#resultados");
   const corpoDoModal = document.querySelector(".modal-body");
   const fecharModal = document.querySelector(".btn-close");
+
   modalContainer.addEventListener("click", function (e) {
     if (e.target === modalContainer) {
       corpoDoModal.innerHTML = "";
     }
   });
+
   fecharModal.addEventListener("click", function () {
     corpoDoModal.innerHTML = "";
   });
+
   const btnFecharModal = document.querySelector("#close-modal");
   btnFecharModal.addEventListener("click", function () {
     corpoDoModal.innerHTML = "";
