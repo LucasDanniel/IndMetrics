@@ -66,9 +66,16 @@ const calculoAlavancagem = (dividaLiquida, EBITDA) => {
 const liquidezCorrente = (ativoCirculante, passivoCirculante) => {
   const resultadoLiquidezCorrente = ativoCirculante / passivoCirculante;
   //Se o resultado for superior a 1, em geral, significa que a empresa dispõe de recursos para fazer frente aos compromissos de curto prazo.
-  return `Indicador de liquidez corrente: ${resultadoLiquidezCorrente.toFixed(
-    2
-  )}`;
+
+  if (resultadoLiquidezCorrente >= 1) {
+    return `Indicador de liquidez corrente: ${resultadoLiquidezCorrente.toFixed(
+      2
+    )} (indicador positivo.)`;
+  } else {
+    return `Indicador de liquidez corrente: ${resultadoLiquidezCorrente.toFixed(
+      2
+    )} (indicador negativo.)`;
+  }
 };
 /**
  * @param ativoCirculante É o conjunto de bens e direitos que podem ser convertidos em dinheiro no considerado ano fiscal da empresa.
@@ -77,7 +84,15 @@ const liquidezCorrente = (ativoCirculante, passivoCirculante) => {
  */
 const liquidezSeca = (ativoCirculante, estoque, passivoCirculante) => {
   const resultadoLiquidezSeca = (ativoCirculante - estoque) / passivoCirculante;
-  return `Indicador de liquidez seca: ${resultadoLiquidezSeca.toFixed(2)}`;
+  if (resultadoLiquidezSeca >= 1) {
+    return `Indicador de liquidez seca: ${resultadoLiquidezSeca.toFixed(
+      2
+    )} (indicador positivo.)`;
+  } else {
+    return `Indicador de liquidez seca: ${resultadoLiquidezSeca.toFixed(
+      2
+    )} (indicador negativo.).`;
+  }
 };
 
 /**
@@ -87,9 +102,15 @@ const liquidezSeca = (ativoCirculante, estoque, passivoCirculante) => {
 const liquidezImediata = (disponibilidades, passivoCirculante) => {
   const resultadoLiquidezImediata = disponibilidades / passivoCirculante;
 
-  return `Indicador de liquidez imediata: ${resultadoLiquidezImediata.toFixed(
-    2
-  )}`;
+  if (resultadoLiquidezImediata >= 1) {
+    return `Indicador de liquidez imediata: ${resultadoLiquidezImediata.toFixed(
+      2
+    )} (indicador positivo.)`;
+  } else {
+    return `Indicador de liquidez imediata: ${resultadoLiquidezImediata.toFixed(
+      2
+    )} (indicador negativo.)`;
+  }
 };
 /**
  * @param ativoCirculante É o conjunto de bens e direitos que podem ser convertidos em dinheiro no considerado ano fiscal da empresa.
@@ -107,7 +128,15 @@ const liquidezGeral = (
     (ativoCirculante + realizavelLongoPrazo) /
     (passivoCirculante + passivoNaoCirculante);
 
-  return `Indicador de liquidez geral: ${resultadoLiquidezGeral.toFixed(2)}`;
+  if (resultadoLiquidezGeral >= 1) {
+    return `Indicador de liquidez geral: ${resultadoLiquidezGeral.toFixed(
+      2
+    )} (indicador positivo.)`;
+  } else {
+    return `Indicador de liquidez geral: ${resultadoLiquidezGeral.toFixed(
+      2
+    )} (indicador negativo.))`;
+  }
 };
 
 export {

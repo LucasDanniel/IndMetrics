@@ -87,6 +87,7 @@ import {
       disponibilidades.value.replace(",", ".")
     );
 
+    //Array para armazenar todos os valores dos inputs.
     const arrValores = [
       toNumberLucroLiquido,
       toNumberLucroBruto,
@@ -143,14 +144,16 @@ import {
       toNumberNaoCirculante
     );
 
-    //Inserindo resultados dentro do modal.
+    //Inserindo resultados dentro do modal através de uma validação dos valores dos inputs.
     const corpoDoModal = document.querySelector(".modal-body");
+
+    //Iteração devolvendo uma cópia do array de valores utilizando o loop .map()
     arrValores.map((valores) => {
       //Se não existir nenhum valor, deixa o corpo do modal vazio.
       if (!valores) {
         corpoDoModal.innerHTML = "";
       } else {
-        //Caso exista, cria uma tag span com todos os resultados.
+        //Caso exista, criar tags span com todos os resultados.
         corpoDoModal.innerHTML = `
         <span class="fw-bold">${margemLiquida}</span>
         <br/>
@@ -177,7 +180,7 @@ import {
     });
   };
 
-  //Resetando conteúdo dentro do corpo do modal.
+  //Resetando conteúdo dentro do corpo do modal ao fecha-lo.
   const modalContainer = document.querySelector("#resultados");
   const corpoDoModal = document.querySelector(".modal-body");
   const fecharModal = document.querySelector(".btn-close");
