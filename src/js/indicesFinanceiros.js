@@ -152,25 +152,25 @@ import {
       } else {
         //Caso exista, cria uma tag span com todos os resultados.
         corpoDoModal.innerHTML = `
-        <span>${margemLiquida}</span>
+        <span class="fw-bold">${margemLiquida}</span>
         <br/>
-        <span>${margemBruta}</span>
+        <span class="fw-bold">${margemBruta}</span>
         <br/>
-        <span>${margemEBITDA}</span>
+        <span class="fw-bold">${margemEBITDA}</span>
         <br/>
-        <span>${roi}</span>
+        <span class="fw-bold">${roi}</span>
         <br/>
-        <span>${roe}</span>
+        <span class="fw-bold">${roe}</span>
         <br/>
-        <span>${alavancagem}</span>
+        <span class="fw-bold">${alavancagem}</span>
         <br/>
-        <span>${liquidezCrt}</span>
+        <span class="fw-bold">${liquidezCrt}</span>
         <br/>
-        <span>${liquidezSec}</span>
+        <span class="fw-bold">${liquidezSec}</span>
         <br/>
-        <span>${liquidezImd}</span>
+        <span class="fw-bold">${liquidezImd}</span>
         <br/>
-        <span>${liquidezGer}</span>
+        <span class="fw-bold">${liquidezGer}</span>
         <br/>
         `;
       }
