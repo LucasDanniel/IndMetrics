@@ -16,46 +16,46 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <div class="container-fluid justify-content-end">
-        <a class="navbar-brand" href="#">
-          <img
+      <div class="container-fluid flex-row-reverse flex-md-row flex-sm-row">
+        <a class="d-flex justify-content-center" href="#"
+          ><img
             src="./assets/logo.png"
-            alt=""
-            class="d-inline-block align-text-top img-fluid w-50"
-          />
-        </a>
+            alt="Logo clicável para o início da página."
+            class="img-fluid w-50"
+        /></a>
         <button
-          class="navbar-toggler"
+          class="navbar-toggler justify-content-end"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
+          data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="navbar-collapse justify-content-end"
-          id="navbarNavAltMarkup"
+          class="collapse navbar-collapse justify-content-end pe-5"
+          id="navbarColor01"
         >
-          <div class="navbar-nav">
-            <a
-              class="nav-link text-center text-lg-end link-light"
-              href="./index.html"
-              >Home</a
-            >
-            <a
-              class="nav-link text-center text-lg-end link-light"
-              href="./calculadora.html"
-              >Calculadora</a
-            >
-            <a
-              class="nav-link text-center text-lg-end link-light"
-              href="./equipe.html"
-              >Equipe</a
-            >
-          </div>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item text-center fw-bold">
+              <a
+                class="nav-link link-light"
+                aria-current="page"
+                href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item text-center fw-bold">
+              <a class="nav-link link-light" href="./calculadora.html"
+                >Calculadora</a
+              >
+            </li>
+            <li class="nav-item text-center fw-bold">
+              <a class="nav-link link-light" href="./equipe.html">Equipe</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -72,7 +72,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="resultadosIndices">
+              <h5 class="modal-title text-center" id="resultadosIndices">
                 Resultados dos indices
               </h5>
               <button
@@ -363,7 +363,7 @@
           </button>
           <br />
         </form>
-        <section>
+        <section class="mt-5">
           <h2>Indicadores financeiros de rentabilidade</h2>
           <ul>
             <li>
