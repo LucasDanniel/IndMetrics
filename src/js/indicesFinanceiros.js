@@ -151,9 +151,9 @@ import {
     arrValores.map((valores) => {
       //Se não existir nenhum valor, deixa o corpo do modal vazio.
       if (!valores) {
+        //Caso exista, criar tags span com todos os resultados.
         corpoDoModal.innerHTML = "";
       } else {
-        //Caso exista, criar tags span com todos os resultados.
         corpoDoModal.innerHTML = `
         <span class="fw-bold">${margemLiquida}</span>
         <br/>
