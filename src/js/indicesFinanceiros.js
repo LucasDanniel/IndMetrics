@@ -227,6 +227,6 @@ import {
     );
   });
 
-  //Escutador de evento para enviar o formulário.
+  //Manipulador de eventos para enviar o formulário.
   formulario.addEventListener("submit", calcularIndices);
 })();
